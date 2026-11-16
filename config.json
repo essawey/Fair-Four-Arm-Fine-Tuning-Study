@@ -1,0 +1,71 @@
+{
+  "split_seed": 2026,
+  "train_seeds": [
+    11,
+    22,
+    33
+  ],
+  "epochs": 40,
+  "stage2_start_epoch_C": 11,
+  "batch_size": 32,
+  "optimizer": "AdamW",
+  "weight_decay": 0.0001,
+  "image_size": 224,
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "train_augmentation": "RandomCrop(32, padding=4, reflect) + RandomHorizontalFlip, then Resize(224)",
+  "shift": "adjust_brightness(image, 0.6) before Resize and Normalize",
+  "lr_grid": {
+    "A": [
+      0.0003,
+      0.001,
+      0.003
+    ],
+    "B": [
+      0.001,
+      0.003,
+      0.01
+    ],
+    "C": [
+      1e-05,
+      3e-05,
+      0.0001
+    ],
+    "D": [
+      1e-05,
+      3e-05,
+      0.0001
+    ]
+  },
+  "chosen_lrs": {
+    "A": {
+      "head": 0.0003,
+      "backbone": 0.0003
+    },
+    "B": {
+      "head": 0.003,
+      "backbone": null
+    },
+    "C": {
+      "head": 0.003,
+      "backbone": 3e-05
+    },
+    "D": {
+      "head": 0.003,
+      "backbone": 3e-05
+    }
+  },
+  "device": "mps",
+  "torch": "2.15.0",
+  "torchvision": "0.29.2"
+}

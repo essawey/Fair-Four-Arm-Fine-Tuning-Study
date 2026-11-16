@@ -1,0 +1,15 @@
+{
+  "split_seed": 2026,
+  "classes": [
+    {
+      "cifar_index": 3,
+      "cifar_name": "cat",
+      "label": 0
+    },
+    {
+      "cifar_index": 5,
+      "cifar_name": "dog",
+      "label": 1
+    }
+  ]
+}
